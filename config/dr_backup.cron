@@ -1,0 +1,3 @@
+# Copy to /etc/cron.d/dr_backup  (sudo chmod 644 /etc/cron.d/dr_backup)
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+*/30 * * * * root /usr/local/bin/backup_all.sh >> /var/log/dr_backup_cron.log 2>&1
