@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud DR Dashboard Login</title>
+ 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #071b36, #123d67, #087e9c);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+ 
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+ 
+.logo {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+ 
+h2 {
+    text-align: center;
+    color: #123d67;
+    margin-bottom: 8px;
+}
+ 
+.subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+ 
+label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+ 
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+ 
+input:focus {
+    outline: none;
+    border-color: #087e9c;
+}
+ 
+.password-box {
+    display: flex;
+    gap: 8px;
+}
+ 
+.password-box input {
+    flex: 1;
+}
+ 
+.password-box button {
+    padding: 0 12px;
+    border: 1px solid #ccc;
+    background: #f3f5f7;
+    border-radius: 7px;
+    cursor: pointer;
+}
+ 
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 7px;
+    background: #087e9c;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+.login-btn:hover {
+    background: #065d78;
+}
+ 
+#error {
+    color: #d93025;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+ 
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #777;
+    font-size: 12px;
+}
+</style>
+</head>
+ 
+<body>
+ 
+<div class="login-container">
+ 
+    <div class="logo">☁️</div>
+ 
+    <h2>Cloud DR Dashboard</h2>
+ 
+    <p class="subtitle">
+        Disaster Recovery & Backup Management System
+    </p>
+ 
+    <form id="loginForm">
+ 
+        <label>Username</label>
+        <input type="text" id="username"
+               placeholder="Enter username" required>
+ 
+        <label>Password</label>
+ 
+        <div class="password-box">
+            <input type="password" id="password"
+                   placeholder="Enter password" required>
+ 
+            <button type="button" onclick="togglePassword()">
+                Show
+            </button>
+        </div>
+ 
+        <button type="submit" class="login-btn">
+            Login to Dashboard
+        </button>
+ 
+        <p id="error"></p>
+ 
+    </form>
+ 
+    <div class="footer">
+        Powered by AWS Cloud Infrastructure
+        <br><br>
+        © 2026 Cloud Disaster Recovery Project
+    </div>
+ 
+</div>
+ 
+<script>
+ 
+function togglePassword() {
+    const password = document.getElementById("password");
+ 
+    password.type =
+        password.type === "password" ? "text" : "password";
+}
+ 
+document.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+ 
+    event.preventDefault();
+ 
+    const username =
+        document.getElementById("username").value;
+ 
+    const password =
+        document.getElementById("password").value;
+ 
+    if (username === "admin" && password === "Admin@123") {
+ 
+        window.location.href = "dashboard.html";
+ 
+    } else {
+ 
+        document.getElementById("error").innerText =
+            "Invalid username or password!";
+ 
+    }
+ 
+});
+ 
+</script>
+ 
+</body>
+</html>
+ 
